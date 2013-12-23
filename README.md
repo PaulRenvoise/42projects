@@ -1,4 +1,4 @@
-FDF
+42projects
 ===
 
-A simple mapping tool using Minilibx
+Differents projects from 42 and some screenshots of them.
