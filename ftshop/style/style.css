@@ -1,0 +1,500 @@
+@import url(http://fonts.googleapis.com/css?family=Lemon|Oxygen);
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('fonts/BebasNeue.eot');
+    src: url('fonts/BebasNeue.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue.woff') format('woff'),
+         url('fonts/BebasNeue.ttf') format('truetype'),
+         url('fonts/BebasNeue.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Oxygen', sans-serif;
+	font-size: .9em;
+	height: 100%;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+	color: #000;
+}
+.container .content .right {
+	text-align: right;
+}
+.container .content .center {
+	text-align: center;
+}
+.clear {
+	clear: both;
+}
+header {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-width: 1000px;
+	position: fixed;
+	top: 0;
+	height: 50px;
+	z-index: 1;
+	background: #4c4c4c;
+	background: -moz-linear-gradient(top,  #4c4c4c 0%, #512828 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(100%,#512828));
+	background: -webkit-linear-gradient(top,  #4c4c4c 0%,#512828 100%);
+	background: -o-linear-gradient(top,  #4c4c4c 0%,#512828 100%);
+	background: -ms-linear-gradient(top,  #4c4c4c 0%,#512828 100%);
+	background: linear-gradient(to bottom,  #4c4c4c 0%,#512828 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#512828',GradientType=0 );
+}
+header .sitename {
+	margin: 0;
+	padding: 0 20px;
+	line-height: 45px;
+	font-weight: normal;
+	display: inline-block;
+	float: left;
+	text-shadow: 0 1px 1px rgba(0,0,0,.7);
+}
+header .sitename a {
+	color: #fff;
+	text-decoration: none;
+}
+header nav {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	float: left;
+	vertical-align: top;
+}
+header nav.right {
+	float: right;
+}
+header nav ul {
+	margin: 0;
+	padding: 0;
+	height: 50px;
+}
+header nav ul li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+header nav ul li a {
+	padding: 0 10px;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.2em;
+	display: block;
+	text-align: center;
+}
+header nav ul li a:hover, header nav ul li a:active, header nav ul li a:focus {
+	color: #fff;
+	text-decoration: none;
+	background: #3f3f3f;
+	background: -moz-linear-gradient(top,  #3f3f3f 0%, #2d1616 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3f3f3f), color-stop(100%,#2d1616));
+	background: -webkit-linear-gradient(top,  #3f3f3f 0%,#2d1616 100%);
+	background: -o-linear-gradient(top,  #3f3f3f 0%,#2d1616 100%);
+	background: -ms-linear-gradient(top,  #3f3f3f 0%,#2d1616 100%);
+	background: linear-gradient(to bottom,  #3f3f3f 0%,#2d1616 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#2d1616',GradientType=0 );
+}
+header nav ul li a.cart-link {
+	text-indent: -9999px;
+	width: 60px;
+	background-image: url('../img/icons/cart.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+header form.login {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+header form.login p {
+	margin: 11px 5px 11px 10px;
+	padding: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+header form.login p.submit {
+	margin: 13px 7px 0 0;
+}
+header form.login p input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+header form.login p input[type=text], header form.login p input[type=password] {
+	margin-right: 10px;
+	padding: 7px 2px;
+	border: none;
+	background-color: transparent;
+	color: #fff;
+	border-bottom: 2px solid #c6c6c6;
+}
+header form.login p input[type=submit]
+{
+	margin-top: 2px;
+	border: none;
+	font-family: 'Oxygen', sans-serif;
+	background-color: transparent;
+	font-size: 1.2em;
+	color: #fff;
+	cursor: pointer;
+}
+.container {
+	margin: 0 auto;
+	padding: 70px 20px 60px;
+	width: 1000px;
+	min-height: 100%;
+	position: relative;
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.container .content h1 {
+	margin: .5em 0;
+	font-size: 3.2em;
+	font-family: 'Bebas Neue', sans-serif;
+	color: #444;
+	border-bottom: 1px solid #a3a3a3;
+}
+.container .content h2 {
+	margin: 1em 0 .5em .5em;
+	font-size: 2em;
+	font-family: 'Bebas Neue', sans-serif;
+	color: #444;
+	border-bottom: 1px solid #a3a3a3;
+}
+.container .content h1 span {
+	font-size: .6em;
+	color: #a0a0a0;
+}
+.container .content h1 span a {
+	color: #a0a0a0;
+}
+.container .content ul.spaced li {
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.container .content p {
+	text-align: justify;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.container .content form p {
+	margin: 2px;
+}
+.container .content form p label {
+	padding-top: 7px;
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+	cursor: pointer;
+	vertical-align: top;
+}
+.container .content form p input, .container .content form p button {
+	outline: none;
+}
+.container .content form p input[type=text], .container .content form p input[type=password], .container .content form p input[type=number] {
+	padding: 5px;
+}
+.container .content form p select {
+	padding: 10px;
+	min-width: 500px;
+	height: auto;
+	font-size: 1.1em;
+	outline: none;
+}
+.container .content form p textarea {
+	padding: 5px;
+	resize: vertical;
+	outline: none;
+}
+.container .content form p input[type=submit] {
+	padding: 7px 10px;
+	background-color: #444;
+	border: none;
+	margin-left: 205px;
+	cursor: pointer;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.container .content form p button[type=submit] {
+	margin-left: 20px;
+	padding: 7px 10px;
+	background-color: #444;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.container .content form p input[type=submit]:hover, .container .content form p input[type=submit]:focus {
+	background-color: #555;
+}
+.container .content form p button[type=submit]:hover, .container .content form p button[type=submit]:focus {
+	background-color: #555;
+}
+.container .content p.error {
+	padding: 10px 20px;
+	background-color: #f2dede;
+	border: 1px solid #ebccd1;
+	color: #a94442;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.container .content p.success {
+	padding: 10px 20px;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	color: #3c763d;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.container .content p.tip {
+	padding: 10px 20px;
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	color: #c09853;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.container .content ul.check li {
+	list-style-image: url('../img/icons/check.png');
+}
+footer {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+footer p {
+	margin: 0 20px;
+	padding: 10px 0;
+	text-align: right;
+	border-top: 1px solid #cbcbcb;
+	color: #7b7b7b;
+}
+footer p a {
+	text-decoration: none;
+	color: #7b7b7b;
+}
+footer p a:hover, footer p a:active, footer p a:focus {
+	text-decoration: underline;
+}
+.container .content .categories {
+	margin: 20px auto;
+	display: block;
+	text-align: center;
+}
+.container .content .categories .category {
+	margin: 5px;
+	padding: 5px 15px;
+	height: 230px;
+	width: 200px;
+	text-align: center;
+	vertical-align: top;
+	display: inline-block;
+	background-color: #eaeaea;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.container .content .categories .category:hover, .container .content .categories .category:active, .container .content .categories .category:focus {
+	background-color: #d8d8d8;
+	text-decoration: none;
+}
+.container .content .categories .category h1 {
+	font-size: 1.3em;
+	font-family: 'Oxygen', sans-serif;
+	border: none;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.container .content .categories .category h1.tiny {
+	font-size: 1.1em;
+}
+.container .content .categories .category img {
+	margin: 0 auto;
+	display: block;
+	max-height: 150px;
+	max-width: 150px;
+	border: 1px solid #b1b1b1;
+	opacity: .7;
+	background-color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.container .content .categories .category:hover img, .container .content .categories .category:active img, .container .content .categories .category:focus img {
+	opacity: 1;
+}
+.container .content .categories .category .noimg {
+	display: block;
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	color: #808080;
+	font-family: sans-serif;
+	text-align: center;
+	font-size: 10em;
+}
+.container .content .categories .category span.count {
+	margin: 5px 0 0;
+	padding: 5px 0;
+	display: block;
+	text-align: center;
+}
+.container .content table.articles {
+	width: 100%;
+	border-collapse: collapse;
+	border-right: 1px solid #d8d8d8;
+	border-left: 1px solid #d8d8d8;
+}
+.container .content table.articles thead th {
+	padding: 7px 5px;
+	background-color: #d8d8d8;
+	text-align: left;
+	font-size: 1.2em;
+}
+.container .content table.articles tbody tr {
+	border-bottom: 1px solid #d8d8d8;
+}
+.container .content table.articles tbody tr:nth-child(even) {
+	background-color: #eee;
+}
+.container .content table.articles tbody td {
+	padding: 5px;
+}
+.container .content table.articles tbody td.nb {
+	text-align: right;
+}
+.container .content table.articles tbody td.actions {
+	line-height: 23px;
+}
+.container .content table.articles tbody td.actions .minus {
+	margin-right: 10px;
+	text-indent: -9999px;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url('../img/icons/minus.png') center center no-repeat;
+}
+.container .content table.articles tbody td.actions .plus {
+	text-indent: -9999px;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url('../img/icons/plus.png') center center no-repeat;
+}
+.container .content .article {
+	margin: 20px auto;
+	width: 100%;
+}
+.container .content .article .img {
+	margin-left: 20px;
+	margin-right: 20px;
+	float: left;
+}
+.container .content .article .img img {
+	max-width: 500px;
+	max-height: 500px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.container .content .infos {
+	margin: 10px;
+	padding: 10px;
+	min-width: 300px;
+	min-height: 350px;
+	float: right;
+	background-color: #f7f7f7;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+	opacity: .8;
+}
+.container .content .infos:hover, .container .content .infos:active, .container .content .infos:focus {
+	opacity: 1;
+}
+.container .content .infos h2 {
+	margin: 0 0 10px 0;
+	padding-bottom: 5px;
+	text-align: center;
+	border-color: #d1d1d1;
+}
+.container .content .infos h2.margin {
+	margin-top: 150px;
+}
+.container .content .infos .price {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 5em;
+	font-weight: bold;
+	font-family: 'Arial', sans-serif;
+}
+.container .content .infos .price span {
+	font-size: .5em;
+	vertical-align: top;
+	color: #818181;
+	font-weight: normal;
+}
+.container .content .infos .addtocart p {
+	text-align: center;
+}
+.container .content .infos .addtocart p input[type=number] {
+	padding: 7px 10px;
+	background-color: #444;
+	border: none;
+	color: #fff;
+}
+.container .content .infos .addtocart p input[type=submit] {
+	margin: 0;
+}
+.container .content .total, .container .content .checkout_infos {
+	line-height: 170%;
+}
+.container .content .total span {
+	display: inline-block;
+	width: 130px;
+	text-align: right;
+}
+.container .content .checkout_infos span {
+	display: inline-block;
+	width: 130px;
+}
