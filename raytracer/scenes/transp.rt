@@ -1,0 +1,253 @@
+camera :
+	{
+		position : 0 0 -400,
+		rotation : 0 0 0
+	}
+objects :
+	{
+		sphere :
+			{
+				position : -180 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 12 35 242,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -140 -10 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 220 30 30,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -100 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 70 200 63,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -60 10 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 160 90 190,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -20 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 230 230 20,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -80 0 -150,
+				radius : 40,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 255 255 255,
+						ambiant : 0.5,
+						diffuse : 0.8,
+						specular : 2,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0.9
+					}
+			},
+		sphere :
+			{
+				position : 180 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 12 35 242,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 140 -10 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 220 30 30,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 100 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 70 200 63,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 60 10 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 160 90 190,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 20 0 0,
+				radius : 20,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 230 230 20,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 80 0 -150,
+				radius : 40,
+				rotation : 20 0 -10,
+				height : 0,
+				caps : 1,
+				material :
+					{
+						color : 255 255 255,
+						ambiant : 0.5,
+						diffuse : 0.8,
+						specular : 2,
+						phong : 5,
+						reflection : 0,
+						refraction : 1.5,
+						transparency : 0.9
+					}
+			},
+		}
+lights :
+	{
+		point :
+			{
+				position : -300 -150 -550,
+				rotation : 0 0 0,
+				color : 255 255 255,
+				intensity : 1
+			},
+		point :
+			{
+				position : 300 -150 -550,
+				rotation : 0 0 0,
+				color : 255 255 255,
+				intensity : 1
+			},
+	}
