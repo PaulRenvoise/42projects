@@ -1,0 +1,196 @@
+camera :
+	{
+		position : 0 0 -400,
+		rotation : 0 0 0
+	}
+objects :
+	{
+		plane :
+			{
+				position : 0 50 0,
+				rotation : 0 0 0,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		plane :
+			{
+				position : 0 -100 0,
+				rotation : 0 0 0,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		plane :
+			{
+				position : 0 0 -800,
+				rotation : 90 0 0,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		plane :
+			{
+				position : 0 0 200,
+				rotation : 90 0 0,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		plane :
+			{
+				position : -130 0 200,
+				rotation : 90 0 90,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		plane :
+			{
+				position : 130 0 200,
+				rotation : 90 0 -90,
+				width : 0,
+				height : 0,
+				radius : 0,
+				material :
+					{
+						color : 200 230 255,
+						ambiant : 0.5,
+						diffuse : 0.5,
+						specular : 0.5,
+						phong : 2,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : -55 0 0,
+				radius : 50,
+				rotation : 0 0 0,
+				material :
+					{
+						color : 0 0 255,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0.5,
+						refraction : 1,
+						transparency : 0
+					}
+			},
+		sphere :
+			{
+				position : 0 0 -80,
+				radius : 25,
+				rotation : 0 0 0,
+				material :
+					{
+						color : 255 0 255,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0.2,
+						refraction : 1.5,
+						transparency : 0.8
+					}
+			},
+		cone :
+			{
+				position : 55 0 0,
+				radius : 30,
+				rotation : 0 0 0,
+				height : 50,
+				caps : 1,
+				material :
+					{
+						color : 0 255 0,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 10,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		cylinder :
+			{
+				position : 15 2 -35,
+				radius : 10,
+				rotation : -30 0 15,
+				caps : 1,
+				height : 50,
+				material :
+					{
+						color : 255 0 0,
+						ambiant : 0.5,
+						diffuse : 0.6,
+						specular : 0.6,
+						phong : 5,
+						reflection : 0.5,
+						transparency : 0
+					}
+			},
+		}
+lights :
+	{
+		point :
+			{
+				position : -40 -100 -550,
+				rotation : 0 0 0,
+				color : 255 255 255,
+				intensity : 1
+			},
+	}
