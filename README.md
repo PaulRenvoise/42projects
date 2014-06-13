@@ -18,8 +18,13 @@ Raytracer:
 
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/raytracer/mirrors.png)
 
+Contributors:
+![](https://github.com/RhapsodySpade)
+![](https://github.com/Frolanta)
+![](https://github.com/Kerumen)
 
-Ft_shop:
+
+Ftshop:
 =======
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/ftshop/home.png)
 
@@ -30,8 +35,22 @@ Ft_shop:
 ====
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/42sh/terminal.png)
 
+Contributors:
+![](https://github.com/RhapsodySpade)
+![](https://github.com/Frolanta)
+![](https://github.com/Kerumen)
+
+
 Intra:
 =====
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/index.png)
+
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/profile.png)
+
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/activities.png)
+
+Contributors:
+![](https://github.com/RhapsodySpade)
+![](https://github.com/Frolanta)
+![](https://github.com/Kerumen)
+![](https://github.com/vrebierr)
