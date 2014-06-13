@@ -1,0 +1,7 @@
+app/config/parameters.yml
+conf/
+vendor/
+bin/
+app/cache/
+app/logs/
+web/uploads/
