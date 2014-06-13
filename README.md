@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Hey let's code some intra in Symfony !
-=======
 42PROJECTS
 ==========
 Here are some of my 42's projects with a few screenshots to illustrate.
@@ -32,4 +29,6 @@ Ft_shop:
 42sh:
 ====
 ![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/42sh/terminal.png)
->>>>>>> a4b6871b2e4afef5c15eebffad9248016539100a
+
+Intra:
+=====
