@@ -1,3 +1,0 @@
-site_intra:
-    pattern:  /
-    defaults: { _controller: SiteIntraBundle:Intra:index }

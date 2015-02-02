@@ -1,3 +1,0 @@
-site_directory:
-    pattern:  /
-    defaults: { _controller: SiteDirectoryBundle:Directory:index }
