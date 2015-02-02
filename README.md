@@ -1,85 +1,23 @@
-42PROJECTS
-==========
-Here are some of my 42's projects with a few screenshots to illustrate.
-
-
-Raycaster:
-=========
-![](https://raw.github.com/PaulRenvoise/42projects/master/raycaster/Intro.png)
-
-![](https://raw.github.com/PaulRenvoise/42projects/master/raycaster/Black%20blocks.png)
-
-See here for gameplay video: http://www.youtube.com/watch?v=9AC2tg5Khvc
-
-
-Raytracer:
-=========
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/raytracer/trans.png)
-
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/raytracer/mirrors.png)
-
-Contributors:
-
-[RhapsodySpade](https://github.com/RhapsodySpade)
-
-[Frolanta](https://github.com/Frolanta)
-
-[Kerumen](https://github.com/Kerumen)
-
-
-
-Ftshop:
-=======
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/ftshop/home.png)
-
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/ftshop/account.png)
-
-
-42sh:
-====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/42sh/terminal.png)
-
-Contributors:
-
-[RhapsodySpade](https://github.com/RhapsodySpade)
-
-[Frolanta](https://github.com/Frolanta)
-
-[Kerumen](https://github.com/Kerumen)
-
-
-
-Intra:
+LIBFT
 =====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/index.png)
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/profile.png)
-
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/activities.png)
-
-Contributors:
-
-[RhapsodySpade](https://github.com/RhapsodySpade)
-
-[Frolanta](https://github.com/Frolanta)
-
-[Kerumen](https://github.com/Kerumen)
-
-[vrebierr](https://github.com/vrebierr)
+A LIB CONTAINING 111 FUNCTIONS RELATED TO:
 
 
-Zappy:
-=====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/zappy/start.png)
+Strings (ft_str-),
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/zappy/ongoing.png)
+Memory (ft_mem-, ft_bzero, ft_realloc),
 
-See here for gameplay video: https://www.youtube.com/watch?v=LcaOZ5rA0Fg
+Linked lists (ft_lst-),
 
-Contributors:
+Doubly linked lists (ft_llst-),
 
-[RhapsodySpade](https://github.com/RhapsodySpade)
+Circular doubly linked lists (ft_cllst-),
 
-[Frolanta](https://github.com/Frolanta)
+Binary trees (ft_b-),
 
-[Kerumen](https://github.com/Kerumen)
+Conversion (ft_XtoY),
+
+Calculus (ft_cos, ft_sin, ft_dabs, ft_abs, ft_sqrt),
+
+Other stuff (GNL, ft_put-, ft_is-, ft_to-, ft_print-).
