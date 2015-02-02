@@ -1,8 +1,8 @@
 Raytracer:
 =========
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/raytracer/trans.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/raytracer/trans.png)
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/raytracer/mirrors.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/raytracer/mirrors.png)
 
 Contributors:
 
