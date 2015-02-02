@@ -1,10 +1,10 @@
 Intra:
 =====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/index.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/intra/index.png)
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/profile.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/intra/profile.png)
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/intra/activities.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/intra/activities.png)
 
 Contributors:
 
