@@ -1,6 +1,6 @@
 42sh:
 ====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/42sh/terminal.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/42sh/terminal.png)
 
 Contributors:
 
