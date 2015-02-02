@@ -1,3 +1,0 @@
-site_planning:
-    pattern:  /
-    defaults: { _controller: SitePlanningBundle:Planning:planning }
