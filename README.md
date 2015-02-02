@@ -1,8 +1,8 @@
 Zappy:
 =====
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/zappy/start.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/zappy/start.png)
 
-![](https://raw.githubusercontent.com/PaulRenvoise/42projects/master/zappy/ongoing.png)
+![](https://raw.githubusercontent.com/PaulRenvoise/42projects/zappy/ongoing.png)
 
 See here for gameplay video: https://www.youtube.com/watch?v=LcaOZ5rA0Fg
 
