@@ -1,3 +1,5 @@
+require_relative 'utils'
+
 class Computor
   NAMES = [
         "constant",
@@ -109,12 +111,12 @@ class Computor
 
       if (delta > 0)
         puts "Delta is strictly positive, two solutions:"
-        puts ((-hash[1]) + Math.sqrt(delta)) / (2 * hash[2])
-        puts ((-hash[1]) - Math.sqrt(delta)) / (2 * hash[2])
+        puts ((-hash[1]) + Utils.sqrt(delta)) / (2 * hash[2])
+        puts ((-hash[1]) - Utils.sqrt(delta)) / (2 * hash[2])
       elsif (delta < 0)
         puts "Delta is strictly negative, two solutions:"
-        puts "#{-hash[1] / (2 * hash[2])} + #{Math.sqrt(-delta) / (2 * hash[2])}i"
-        puts "#{-hash[1] / (2 * hash[2])} - #{Math.sqrt(-delta) / (2 * hash[2])}i"
+        puts "#{-hash[1] / (2 * hash[2])} + #{Utils.sqrt(-delta) / (2 * hash[2])}i"
+        puts "#{-hash[1] / (2 * hash[2])} - #{Utils.sqrt(-delta) / (2 * hash[2])}i"
       else
           puts "Delta equals zero, one solution:"
           puts -hash[1] / (2 * hash[2])
