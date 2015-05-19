@@ -1,14 +1,15 @@
 #ifndef GAME_HPP
 # define GAME_HPP
 
+# include "Graphic.hpp"
+
 class Game
 {
 	public:
 		Game(void);
-		Game(const Game&);
 		~Game(void);
 
-		Game&		operator=(const Game&);
+		void			run(void);
 };
 
 #endif

@@ -1,6 +1,5 @@
 #include "Graphic.hpp"
 
-#include <iostream>
 Graphic::Graphic(void)
 {
 	this->setWidth(1500);
@@ -10,10 +9,6 @@ Graphic::Graphic(void)
 	this->setWin(new sf::RenderWindow(sf::VideoMode(this->_w, this->_h), "GOMOKU", sf::Style::Default, settings));
 	this->setFont(new sf::Font());
 	this->_font->loadFromFile("./font/Lato-Regular.ttf");
-
-	this->_bgShape = new sf::RectangleShape(sf::Vector2f(this->_w, this->_h));
-	this->_bgShape->setFillColor(sf::Color(42, 49, 63));
-	this->_bgShape->setPosition(0, 0);
 }
 
 Graphic::~Graphic(void)
@@ -60,7 +55,7 @@ sf::Font*			Graphic::getFont(void) const
 	return this->_font;
 }
 
-int				Graphic::_getEvents(void) const
+void				Graphic::_handleEvents(void)
 {
 	sf::Event event;
 	while (this->_win->pollEvent(event))
@@ -68,66 +63,33 @@ int				Graphic::_getEvents(void) const
 		if (event.type == sf::Event::Closed)
 		{
 			this->_win->close();
-			return inputs::ESCAPE;
 		}
 		else if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 				case sf::Keyboard::Escape:
-					this->_win->close();
-					return inputs::ESCAPE;
+				default:
+					break;
+			}
+		}
+		else if (event.type == sf::Event::MouseButtonPressed)
+		{
+			switch (event.mouseButton.button)
+			{
 				case sf::Mouse::Left:
-					return inputs::CLICK;
 				default:
 					break;
 			}
 		}
 	}
-	return inputs::NONE;
 }
 
-void				Graphic::render(const Board& board)
+void				Graphic::update()
 {
-	(void)board;
-	while (this->_win->isOpen())
-	{
-		this->_win->clear();
+	this->_win->clear();
 
-		this->_win->draw(*this->_bgShape);
+	this->_win->display();
 
-		for (int i = 0; i < 18; ++i)
-		{
-			for (int j = 0; j < 18; ++j)
-			{
-				sf::RectangleShape cell(sf::Vector2f(48, 48));
-				cell.setFillColor(sf::Color(0, 0, 0, 0));
-				cell.setOutlineColor(sf::Color(255, 255, 255));
-				cell.setOutlineThickness(1);
-				cell.setPosition(300 + i * 49, 50 + j * 49);
-				this->_win->draw(cell);
-			}
-		}
-
-		sf::CircleShape circle(25);
-		circle.setFillColor(sf::Color(0, 0, 0));
-		circle.setPosition(275, 25);
-		this->_win->draw(circle);
-
-		sf::CircleShape circle2(25);
-		circle2.setFillColor(sf::Color(255, 255, 255));
-		circle2.setPosition(325, 25);
-		this->_win->draw(circle2);
-
-		sf::CircleShape circle3(25);
-		circle3.setFillColor(sf::Color(0, 0, 0));
-		circle3.setPosition(375, 25);
-		this->_win->draw(circle3);
-
-		this->_win->display();
-
-		int input = this->_getEvents();
-		if (input == inputs::ESCAPE)
-			exit(0);
-	}
+	this->_handleEvents();
 }

@@ -1,9 +1,9 @@
-#include "Graphic.hpp"
+#include "Game.hpp"
 
 int		main(void)
 {
-	Graphic graphic;
+	Game	game;
 
-	graphic.render(*(new Board));
+	game.run();
 	return (0);
 }

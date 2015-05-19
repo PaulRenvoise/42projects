@@ -7,10 +7,7 @@ class Stone
 {
 	public:
 		Stone(void);
-		Stone(const Stone&);
 		~Stone(void);
-
-		Stone&		operator=(const Stone&);
 
 		void		setX(int);
 		int			getX(void) const;
@@ -22,7 +19,7 @@ class Stone
 	private:
 		int			_x;
 		int			_y;
-		Player*		player;
+		Player*		_player;
 };
 
 #endif
