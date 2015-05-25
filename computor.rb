@@ -101,7 +101,7 @@ class Computor
     hash, deg = array
 
     if (deg == 0)
-      puts (hash[0] == 0) ? "Every number is a solution" : "No solution."
+      puts (hash[0] == 0) ? "Every number is a solution." : "No solution."
       return
     elsif (deg == 1)
       puts "One solution:"
