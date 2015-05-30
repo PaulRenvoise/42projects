@@ -156,7 +156,7 @@ void							Core::_update(double delta)
 	if (this->_players.size() > 1)
 		this->_handleExtCollisions();
 
-	if ((std::rand() % 50000) == 1)
+	if ((std::rand() % 5000) == 1)
 		this->_spawnTile(eType::BONUS);
 }
 
