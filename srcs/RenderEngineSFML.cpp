@@ -38,14 +38,13 @@ int					RenderEngineSFML::getHeight(void) const
 	return this->_h;
 }
 
-void				RenderEngineSFML::setWin(sf::RenderWindow* win)
+void				RenderEngineSFML::drawBackground(int colors[3])
 {
-	this->_win = win;
-}
-
-sf::RenderWindow*	RenderEngineSFML::getWin(void) const
-{
-	return this->_win;
+	this->_tile->setFillColor(sf::Color(colors[0], colors[1], colors[2]));
+	this->_tile->setPosition(0, 0);
+	this->_tile->setSize(sf::Vector2f(this->_w, this->_h));
+	this->_win->draw(*this->_tile);
+	this->_tile->setSize(sf::Vector2f(24, 24));
 }
 
 void				RenderEngineSFML::drawTile(int colors[3], int x, int y)
@@ -55,7 +54,7 @@ void				RenderEngineSFML::drawTile(int colors[3], int x, int y)
 	this->_win->draw(*this->_tile);
 }
 
-void				RenderEngineSFML::drawText(std::string content, int size, int* colors, int x, int y)
+void				RenderEngineSFML::drawText(std::string content, int size, int colors[3], int x, int y)
 {
 	this->_text->setFont(*this->_font);
 	this->_text->setString(content);
@@ -82,8 +81,8 @@ void				RenderEngineSFML::exit(void)
 
 int					RenderEngineSFML::getEvent(void)
 {
-	sf::Event	event;
 	int			input = eInputs::NONE;
+	sf::Event	event;
 
 	while (this->_win->pollEvent(event))
 	{

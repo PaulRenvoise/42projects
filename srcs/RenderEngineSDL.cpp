@@ -3,10 +3,16 @@
 RenderEngineSDL::RenderEngineSDL(int width, int height)
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
+//	TTF_Init();
 	this->_w = width * 24;
 	this->_h = height * 24 + 100;
 	this->_win = SDL_CreateWindow("NIBBLER", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, this->_w, this->_h, SDL_WINDOW_SHOWN);
-	this->_rend =  SDL_CreateRenderer(this->_win, 0, SDL_RENDERER_ACCELERATED);
+	this->_rend = SDL_CreateRenderer(this->_win, 0, SDL_RENDERER_ACCELERATED);
+	this->_tile = new SDL_Rect;
+	this->_tile->h = 24;
+	this->_tile->w = 24;
+	this->_tile->x = 0;
+	this->_tile->y = 0;
 }
 
 RenderEngineSDL::~RenderEngineSDL(void)
@@ -33,14 +39,27 @@ int					RenderEngineSDL::getHeight(void) const
 	return this->_h;
 }
 
-void				RenderEngineSDL::drawTile(int colors[3], int x, int y)
+void				RenderEngineSDL::drawBackground(int colors[3])
 {
-	SDL_Rect rect = {y, x, 24, 24};
+	this->_tile->h = this->_h;
+	this->_tile->w = this->_w;
+	this->_tile->x = 0;
+	this->_tile->y = 0;
 	SDL_SetRenderDrawColor(this->_rend, colors[0], colors[1], colors[2], 0xFF);
-	SDL_RenderFillRect(this->_rend, &rect);
+	SDL_RenderFillRect(this->_rend, this->_tile);
+	this->_tile->h = 24;
+	this->_tile->w = 24;
 }
 
-void				RenderEngineSDL::drawText(std::string content, int size, int* colors, int x, int y)
+void				RenderEngineSDL::drawTile(int colors[3], int x, int y)
+{
+	this->_tile->x = y;
+	this->_tile->y = x;
+	SDL_SetRenderDrawColor(this->_rend, colors[0], colors[1], colors[2], 0xFF);
+	SDL_RenderFillRect(this->_rend, this->_tile);
+}
+
+void				RenderEngineSDL::drawText(std::string content, int size, int colors[3], int x, int y)
 {
 	(void)content;
 	(void)size;
@@ -51,6 +70,7 @@ void				RenderEngineSDL::drawText(std::string content, int size, int* colors, in
 
 void				RenderEngineSDL::clear(void)
 {
+	SDL_RenderClear(this->_rend);
 }
 
 void				RenderEngineSDL::display(void)
@@ -81,40 +101,38 @@ int					RenderEngineSDL::getEvent(void)
 		}
 		else if (event.type == SDL_KEYDOWN)
 		{
-			std::cout << event.key.keysym.scancode << std::endl;
-/*
-			switch (event->keyboardkey.code)
+			switch (event.key.keysym.scancode)
 			{
-				case sf::Keyboard::Escape:
+				case SDL_SCANCODE_ESCAPE:
 					input = eInputs::ESCAPE;
 					break;
-				case sf::Keyboard::Up:
+				case SDL_SCANCODE_UP:
 					input = eInputs::P1_UP;
 					break;
-				case sf::Keyboard::Down:
+				case SDL_SCANCODE_DOWN:
 					input = eInputs::P1_DOWN;
 					break;
-				case sf::Keyboard::Left:
+				case SDL_SCANCODE_LEFT:
 					input = eInputs::P1_LEFT;
 					break;
-				case sf::Keyboard::Right:
+				case SDL_SCANCODE_RIGHT:
 					input = eInputs::P1_RIGHT;
 					break;
-				case sf::Keyboard::W:
+				case SDL_SCANCODE_W:
 					input = eInputs::P2_UP;
 					break;
-				case sf::Keyboard::S:
+				case SDL_SCANCODE_S:
 					input = eInputs::P2_DOWN;
 					break;
-				case sf::Keyboard::A:
+				case SDL_SCANCODE_A:
 					input = eInputs::P2_LEFT;
 					break;
-				case sf::Keyboard::D:
+				case SDL_SCANCODE_D:
 					input = eInputs::P2_RIGHT;
 					break;
 				default:
 					break;
-			}*/
+			}
 		}
 	}
 

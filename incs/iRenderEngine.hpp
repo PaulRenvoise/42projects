@@ -35,6 +35,7 @@ class iRenderEngine
 
 		virtual void				drawTile(int[3], int, int) = 0;
 		virtual void				drawText(std::string, int, int[3], int, int) = 0;
+		virtual void				drawBackground(int[3]) = 0;
 
 	protected:
 		int					_w;

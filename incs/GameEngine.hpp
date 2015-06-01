@@ -41,7 +41,6 @@ class GameEngine
 		iRenderEngine*					_renderer;
 		std::vector<Player*>			_players;
 		std::vector<std::vector<Tile*>>	_board;
-		bool							_running;
 
 		void							_handleInput(void);
 		void							_update(double);

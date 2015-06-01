@@ -16,7 +16,7 @@ GameEngine::GameEngine(int width, int height, int players)
 	this->_board = board;
 	this->_spawnTile(eType::FOOD);
 	this->_spawnTile(eType::HOLE);
-	this->setRenderer(new RenderEngineSDL(width, height));
+	this->setRenderer(new RenderEngineSFML(width, height));
 	if (players > 1)
 	{
 		this->addPlayer(new Player(0, width / 2 + 1, height / 2));
@@ -149,7 +149,7 @@ void							GameEngine::_update(double delta)
 	if (this->_players.size() > 1)
 		this->_handleExtCollisions();
 
-	if ((std::rand() % 5000) == 1)
+	if ((std::rand() % 10000) == 1)
 		this->_spawnTile(eType::BONUS);
 }
 
@@ -194,18 +194,6 @@ void							GameEngine::_handleSelfCollisions(Player* player)
 	}
 }
 
-void							GameEngine::_lastScreen(std::string id)
-{
-	int	color[3] = {255, 255, 255};
-	while (true)
-	{
-		this->_handleInput();
-		this->_renderer->clear();
-		this->_renderer->drawText("Player " + id + " lost", 50, color, this->_renderer->getWidth() / 2 - this->_renderer->getWidth() / 9, this->_renderer->getHeight() / 2 - this->_renderer->getHeight() / 9);
-		this->_renderer->display();
-	}
-}
-
 /**
  * handles the collision between snakes
  */
@@ -229,6 +217,22 @@ void							GameEngine::_handleExtCollisions(void)
 					this->_lastScreen(std::to_string(this->_players.back()->getId() + 1));
 			}
 		}
+	}
+}
+
+void							GameEngine::_lastScreen(std::string id)
+{
+	int	colors[2][3] = {
+		{0, 0, 0},
+		{255, 255, 255}
+	};
+	while (true)
+	{
+		this->_handleInput();
+		this->_renderer->clear();
+		this->_renderer->drawBackground(colors[0]);
+		this->_renderer->drawText("Player " + id + " lost", 50, colors[1], this->_renderer->getWidth() / 2 - this->_renderer->getWidth() / 9, this->_renderer->getHeight() / 2 - this->_renderer->getHeight() / 9);
+		this->_renderer->display();
 	}
 }
 
@@ -272,11 +276,11 @@ void							GameEngine::_spawnTile(int type)
  */
 void							GameEngine::_render(void)
 {
-		this->_renderer->clear();
-		this->_drawBoard();
-		for (unsigned long i = 0; i < this->_players.size() ; i++)
-			this->_players[i]->draw(this->_renderer);
-		this->_renderer->display();
+	this->_renderer->clear();
+	this->_drawBoard();
+	for (unsigned long i = 0; i < this->_players.size() ; i++)
+		this->_players[i]->draw(this->_renderer);
+	this->_renderer->display();
 }
 
 void							GameEngine::_drawBoard(void)
@@ -290,6 +294,7 @@ void							GameEngine::_drawBoard(void)
 	};
 	int		x = 0;
 
+	this->_renderer->drawBackground(colors[0]);
 	for (std::vector<std::vector<Tile*>>::iterator it = this->_board.begin(); it != this->_board.end(); it++)
 	{
 		int	y = 0;

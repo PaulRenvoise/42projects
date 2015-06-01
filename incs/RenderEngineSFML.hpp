@@ -15,8 +15,6 @@ class RenderEngineSFML : public iRenderEngine
 		int					getWidth(void) const;
 		void				setHeight(int);
 		int					getHeight(void) const;
-		void				setWin(sf::RenderWindow*);
-		sf::RenderWindow*	getWin(void) const;
 
 		void				clear(void);
 		void				exit(void);
@@ -25,6 +23,7 @@ class RenderEngineSFML : public iRenderEngine
 
 		void				drawTile(int[3], int, int);
 		void				drawText(std::string, int, int[3], int, int);
+		void				drawBackground(int[3]);
 
 	private:
 		int					_w;
