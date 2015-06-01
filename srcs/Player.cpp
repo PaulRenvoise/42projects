@@ -1,98 +1,169 @@
 #include "Player.hpp"
 
-Player::Player(int width, int height) :
-	_points(0)
+Player::Player(int id, int x, int y) :
+	_id(id), _points(0), _dir(eDir::UP), _next(eDir::UP), _eat(false), _speed(0.3), _delta(0.0)
 {
-	this->setSnake(new Snake(width, height));
+	this->_snake.push_back(std::pair<int, int>(x, y));
+	++y;
+	this->_snake.push_back(std::pair<int, int>(x, y));
+	++y;
+	this->_snake.push_back(std::pair<int, int>(x, y));
+	++y;
+	this->_snake.push_back(std::pair<int, int>(x, y));
 }
 
 Player::~Player(void)
 {
-	delete this->_snake;
 }
 
-void			Player::setSnake(Snake* snake)
+void								Player::setId(int id)
 {
-	this->_snake = snake;
+	this->_id = id;
 }
 
-Snake*			Player::getSnake(void) const
+int									Player::getId(void) const
 {
-	return this->_snake;
+	return this->_id;
 }
 
-void			Player::addPoints(int points)
+void								Player::setPoints(int points)
 {
-	this->_points += points;
+	this->_points = points;
 }
 
-int				Player::getPoints(void) const
+int									Player::getPoints(void) const
 {
 	return this->_points;
 }
 
-void			Player::setSnakeDirection(int dir)
+void								Player::setSnake(std::vector<std::pair<int, int>>& snake)
 {
-	this->_snake->setDirection(dir);
+	this->_snake = snake;
 }
 
-int				Player::getSnakeDirection(void) const
+std::vector<std::pair<int, int>>	Player::getSnake(void) const
 {
-	return this->_snake->getDirection();
+	return this->_snake;
 }
 
-void			Player::setSnakeNext(int next)
+void								Player::setHead(std::pair<int, int> p)
 {
-	this->_snake->setNext(next);
+	this->_snake.erase(this->_snake.begin());
+	this->_snake.insert(this->_snake.begin(), p);
 }
 
-int				Player::getSnakeNext(void) const
+std::pair<int, int>					Player::getHead(void) const
 {
-	return this->_snake->getNext();
+	return this->_snake.front();
 }
 
-void			Player::setSnakeHead(std::pair<int, int> p)
+void								Player::setDir(int dir)
 {
-	this->_snake->setHead(p);
+	this->_dir = this->_convert[this->_dir][dir];
 }
 
-std::pair<int, int>	Player::getSnakeHead(void) const
+int									Player::getDir(void) const
 {
-	return this->_snake->getHead();
+	return this->_dir;
 }
 
-void				Player::setSnakeSpeed(double speed)
+void								Player::setNext(int next)
 {
-	this->_snake->setSpeed(speed);
+	this->_next = this->_convert[this->_dir][next];
 }
 
-double				Player::getSnakeSpeed(void) const
+int									Player::getNext(void) const
 {
-	return this->_snake->getSpeed();
+	return this->_next;
 }
 
-void				Player::setSnakeDelta(double delta)
+void								Player::setEat(bool eat)
 {
-	this->_snake->setDelta(delta);
+	this->_eat = eat;
 }
 
-double				Player::getSnakeDelta(void) const
+bool								Player::getEat(void) const
 {
-	return this->_snake->getDelta();
+	return this->_eat;
 }
 
-void			Player::moveSnake(void)
+void								Player::setSpeed(double speed)
 {
-	this->_snake->move();
+	this->_speed = speed;
 }
 
-void			Player::setSnakeEat(Tile* tile)
+double								Player::getSpeed(void) const
 {
-	this->_snake->setEat(true);
-	this->addPoints(tile->getValue());
+	return this->_speed;
 }
 
-void			Player::setSnakeStarve(void)
+void								Player::setDelta(double delta)
 {
-	this->_snake->setEat(false);
+	this->_delta = delta;
+}
+
+double								Player::getDelta(void) const
+{
+	return this->_delta;
+}
+
+void								Player::move(void)
+{
+	std::pair<int, int>	p = this->_snake.front();
+	this->_dir = this->_next;
+
+	if (this->_dir == eDir::UP)
+		p.second--;
+	else if (this->_dir == eDir::DOWN)
+		p.second++;
+	else if (this->_dir == eDir::LEFT)
+		p.first--;
+	else if (this->_dir == eDir::RIGHT)
+		p.first++;
+	this->_snake.insert(this->_snake.begin(), p);
+
+	if (!this->_eat)
+		this->_snake.pop_back();
+	else
+		this->_eat = false;
+}
+
+void								Player::eat(Tile* tile)
+{
+	this->_eat = true;
+	this->_points = this->_points + tile->getValue();
+}
+
+void								Player::draw(iRenderEngine* renderer)
+{
+	int	textColor[3] = {255, 255, 255};
+	int	colors[2][2][3] = {
+		{{120, 255, 120}, {20, 255, 20}},
+		{{255, 100, 100}, {255, 40, 40}}
+	};
+	int width = renderer->getWidth();
+	int	x = this->_id ? width / 2 - width / 4 - width / 20: width - width / 4 - width / 20;
+
+	/**
+	 * Renders UI
+	 */
+	renderer->drawText("Player " + std::to_string(this->_id + 1), 40, textColor, x, renderer->getHeight() - 110);
+	renderer->drawText("Score: " + std::to_string(this->_points), 30, textColor, x + 10, renderer->getHeight() - 70);
+	renderer->drawText("Speed: " + std::to_string(int(3 / this->_speed)), 30, textColor, x + 5, renderer->getHeight() - 40);
+	for (int y = renderer->getHeight() - 100; y < renderer->getHeight(); y++)
+	{
+		int color[3] = {45, 45, 45};
+		renderer->drawTile(color, y, width /2);
+	}
+
+	/**
+	 * Renders snakes
+	 */
+	for (std::vector<std::pair<int, int>>::iterator it = this->_snake.begin(); it != this->_snake.end(); it++)
+	{
+		if (it != this->_snake.begin())
+			renderer->drawTile(colors[this->_id][0], (*it).second * 24, (*it).first * 24);
+		else
+			renderer->drawTile(colors[this->_id][1], (*it).second * 24, (*it).first * 24);
+	}
 }

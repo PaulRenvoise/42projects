@@ -1,4 +1,4 @@
-#include "Core.hpp"
+#include "GameEngine.hpp"
 #include "Parser.hpp"
 #include <iostream>
 
@@ -59,9 +59,9 @@ int		main(int ac, char** av)
 
 	std::srand(std::time(0));
 
-	Core core(width, height, players);
+	GameEngine game(width, height, players);
 
-	core.run();
+	game.run();
 
 	delete[] options;
 	delete[] buffer;

@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <vector>
-# include "Engine.hpp"
+# include "iRenderEngine.hpp"
 # include "Player.hpp"
 # include "Tile.hpp"
 
@@ -16,14 +16,14 @@ enum	eGraphics
 	ALLEGRO
 };
 
-class Core
+class GameEngine
 {
 	public:
-		Core(int, int, int);
-		~Core(void);
+		GameEngine(int, int, int);
+		~GameEngine(void);
 
-		void							setEngine(Engine*);
-		Engine*							getEngine(void) const;
+		void							setRenderer(iRenderEngine*);
+		iRenderEngine*					getRenderer(void) const;
 
 		void							addPlayer(Player*);
 
@@ -38,7 +38,7 @@ class Core
 		void							run(void);
 
 	private:
-		Engine*							_engine;
+		iRenderEngine*					_renderer;
 		std::vector<Player*>			_players;
 		std::vector<std::vector<Tile*>>	_board;
 		bool							_running;
@@ -50,7 +50,9 @@ class Core
 		void							_spawnTile(int);
 		void							_render(void);
 		void							_exit(void);
-		std::vector<std::vector<Tile*>>	_initBoard(int, int);
+
+		void							_drawBoard(void);
+		void							_lastScreen(std::string);
 };
 
 #endif
