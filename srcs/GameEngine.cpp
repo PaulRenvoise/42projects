@@ -16,7 +16,7 @@ GameEngine::GameEngine(int width, int height, int players)
 	this->_board = board;
 	this->_spawnTile(eType::FOOD);
 	this->_spawnTile(eType::HOLE);
-	this->setRenderer(new RenderEngineSFML(width, height));
+	this->setRenderer(new RenderEngineSDL(width, height));
 	if (players > 1)
 	{
 		this->addPlayer(new Player(0, width / 2 + 1, height / 2));

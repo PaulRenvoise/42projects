@@ -3,6 +3,7 @@
 
 # include "iRenderEngine.hpp"
 # include <SDL2/SDL.h>
+# include <SDL2/SDL_ttf.h>
 
 class RenderEngineSDL : public iRenderEngine
 {
