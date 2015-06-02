@@ -4,6 +4,7 @@
 # include <iostream>
 # include "RenderEngineSFML.hpp"
 # include "RenderEngineSDL.hpp"
+# include "RenderEngineAllegro.hpp"
 # include "Tile.hpp"
 
 enum	eDir

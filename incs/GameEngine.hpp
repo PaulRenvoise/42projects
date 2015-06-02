@@ -7,8 +7,6 @@
 # include "Player.hpp"
 # include "Tile.hpp"
 
-# define INTERVAL_FRAMES 0.1
-
 enum	eGraphics
 {
 	SFML,

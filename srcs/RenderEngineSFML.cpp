@@ -77,6 +77,7 @@ void				RenderEngineSFML::display(void)
 void				RenderEngineSFML::exit(void)
 {
 	this->_win->close();
+	this->~RenderEngineSFML();
 }
 
 int					RenderEngineSFML::getEvent(void)
@@ -97,6 +98,15 @@ int					RenderEngineSFML::getEvent(void)
 			{
 				case sf::Keyboard::Escape:
 					input = eInputs::ESCAPE;
+					break;
+				case sf::Keyboard::Num1:
+					input = eInputs::KEY_1;
+					break;
+				case sf::Keyboard::Num2:
+					input = eInputs::KEY_2;
+					break;
+				case sf::Keyboard::Num3:
+					input = eInputs::KEY_3;
 					break;
 				case sf::Keyboard::Up:
 					input = eInputs::P1_UP;
@@ -129,4 +139,14 @@ int					RenderEngineSFML::getEvent(void)
 	}
 
 	return input;
+}
+
+iRenderEngine*				loadRenderer(int width, int height)
+{
+	return new RenderEngineSFML(width, height);
+}
+
+void						deleteRenderer(iRenderEngine* renderer)
+{
+	renderer->exit();
 }

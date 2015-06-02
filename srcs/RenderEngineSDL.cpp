@@ -3,7 +3,7 @@
 RenderEngineSDL::RenderEngineSDL(int width, int height)
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-//	TTF_Init();
+	TTF_Init();
 	this->_w = width * 24;
 	this->_h = height * 24 + 100;
 	this->_win = SDL_CreateWindow("NIBBLER", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, this->_w, this->_h, SDL_WINDOW_SHOWN);
@@ -61,11 +61,17 @@ void				RenderEngineSDL::drawTile(int colors[3], int x, int y)
 
 void				RenderEngineSDL::drawText(std::string content, int size, int colors[3], int x, int y)
 {
-	(void)content;
-	(void)size;
-	(void)colors;
-	(void)x;
-	(void)y;
+	TTF_Font*		font = TTF_OpenFont("./font/Square.ttf", size);
+	SDL_Color		color = {static_cast<Uint8>(colors[0]), static_cast<Uint8>(colors[1]), static_cast<Uint8>(colors[2]), 0xFF};
+	SDL_Surface*	surface = TTF_RenderText_Solid(font, content.c_str(), color);
+	SDL_Texture*	texture = SDL_CreateTextureFromSurface(this->_rend, surface);
+	SDL_Rect		rect;
+	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+	rect.x = x;
+	rect.y = y + 12;
+	SDL_RenderCopy(this->_rend, texture, NULL, &rect);
+	SDL_FreeSurface(surface);
+	TTF_CloseFont(font);
 }
 
 void				RenderEngineSDL::clear(void)
@@ -82,6 +88,8 @@ void				RenderEngineSDL::exit(void)
 {
 	SDL_DestroyWindow(this->_win);
 	SDL_Quit();
+	TTF_Quit();
+	this->~RenderEngineSDL();
 }
 
 int					RenderEngineSDL::getEvent(void)
@@ -105,6 +113,15 @@ int					RenderEngineSDL::getEvent(void)
 			{
 				case SDL_SCANCODE_ESCAPE:
 					input = eInputs::ESCAPE;
+					break;
+				case SDL_SCANCODE_1:
+					input = eInputs::KEY_1;
+					break;
+				case SDL_SCANCODE_2:
+					input = eInputs::KEY_2;
+					break;
+				case SDL_SCANCODE_3:
+					input = eInputs::KEY_3;
 					break;
 				case SDL_SCANCODE_UP:
 					input = eInputs::P1_UP;
@@ -138,3 +155,13 @@ int					RenderEngineSDL::getEvent(void)
 
 	return input;
 }
+/*
+iRenderEngine*				loadRenderer(int width, int height)
+{
+	return new RenderEngineSDL(width, height);
+}
+
+void						deleteRenderer(iRenderEngine* renderer)
+{
+	renderer->exit();
+}*/

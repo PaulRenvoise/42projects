@@ -932,6 +932,18 @@ struct Arg
 
     return option::ARG_ILLEGAL;
   }
+
+  //! @brief Returns ARG_OK if the argument is valid library and ARG_ILLEGAL otherwise.
+  static option::ArgStatus Library(const option::Option& option, bool msg)
+  {
+    if (option.arg != NULL && (!strcmp(option.arg, "allegro") || !strcmp(option.arg, "sfml") || !strcmp(option.arg, "sfl")))
+      return option::ARG_OK;
+
+    if (msg)
+      std::cerr << "Option '" << option.name << "' requires a valid library as argument.\n";
+
+    return option::ARG_ILLEGAL;
+  }
 };
 
 /**

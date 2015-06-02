@@ -34,4 +34,10 @@ class RenderEngineSFML : public iRenderEngine
 		sf::Text*			_text;
 };
 
+extern "C"
+{
+	iRenderEngine*				loadRenderer(int, int);
+	void						deleteRenderer(iRenderEngine*);
+}
+
 #endif

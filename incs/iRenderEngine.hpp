@@ -9,6 +9,9 @@ enum	eInputs
 {
 	NONE = 50,
 	ESCAPE,
+	KEY_1,
+	KEY_2,
+	KEY_3,
 	P1_UP,
 	P1_DOWN,
 	P1_LEFT,

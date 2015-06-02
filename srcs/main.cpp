@@ -1,6 +1,7 @@
 #include "GameEngine.hpp"
 #include "Parser.hpp"
 #include <iostream>
+#include "dlfcn.h"
 
 enum	eOptions
 {
@@ -8,7 +9,8 @@ enum	eOptions
 	HELP,
 	WIDTH,
 	HEIGHT,
-	PLAYERS
+	PLAYERS,
+	LIBRARY
 };
 
 const option::Descriptor	usage[] =
@@ -18,6 +20,7 @@ const option::Descriptor	usage[] =
 	{WIDTH, 0, "w", "width", option::Arg::NumericAbove4, " -w, --width \t Specify the game area's width, must be > 4 (default 50)." },
 	{HEIGHT, 0, "h", "height", option::Arg::NumericAbove4, " -h, --height \t Specify the game area's height, must be > 4 (default 40)." },
 	{PLAYERS, 0, "p", "players", option::Arg::Numeric1Or2, " -p, --players \t Specify the number of players for the game, must be 1 or 2 (default 1)." },
+	{LIBRARY, 0, "l", "library", option::Arg::Library, " -l, --library \t Specify the graphic library for the game, must be allegro, sdl or sfml (default sfml)." },
 	{0, 0, 0, 0, 0, 0}
 };
 
@@ -33,6 +36,13 @@ int		main(int ac, char** av)
 	int				width = 50;
 	int				height = 40;
 	int				players = 1;
+	iRenderEngine*	engine = NULL;
+	void*			handle;
+	iRenderEngine*	(*factory)(int, int);
+	std::string		path("./libs/");
+	(void)engine;
+	(void)factory;
+	(void)handle;
 
 	if (parser.nonOptionsCount() || options[UNKNOWN])
 	{
@@ -55,6 +65,16 @@ int		main(int ac, char** av)
 			height = std::atoi(options[HEIGHT].arg);
 		if (options[PLAYERS])
 			players = std::atoi(options[PLAYERS].arg);
+		if (options[LIBRARY])
+		{
+			path.append(options[LIBRARY].arg);
+			path.append(".so");
+		}
+		else
+			path.append("SFML.so");
+		handle = dlopen(path.c_str(), RTLD_LAZY | RTLD_LOCAL);
+		if (!handle)
+			std::cout << "ERROR" << std::endl;
 	}
 
 	std::srand(std::time(0));

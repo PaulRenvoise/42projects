@@ -16,7 +16,7 @@ GameEngine::GameEngine(int width, int height, int players)
 	this->_board = board;
 	this->_spawnTile(eType::FOOD);
 	this->_spawnTile(eType::HOLE);
-	this->setRenderer(new RenderEngineSDL(width, height));
+	this->setRenderer(new RenderEngineAllegro(width, height));
 	if (players > 1)
 	{
 		this->addPlayer(new Player(0, width / 2 + 1, height / 2));
@@ -99,6 +99,18 @@ void							GameEngine::_handleInput(void)
 
 	if (input == eInputs::ESCAPE)
 		this->_exit();
+	else if (input == eInputs::KEY_1)
+	{
+		std::cout << "INPUT 1" << std::endl;
+	}
+	else if (input == eInputs::KEY_2)
+	{
+		std::cout << "INPUT 2" << std::endl;
+	}
+	else if (input == eInputs::KEY_3)
+	{
+		std::cout << "INPUT 3" << std::endl;
+	}
 	else if (input != eInputs::NONE)
 	{
 		if (this->_players[0])

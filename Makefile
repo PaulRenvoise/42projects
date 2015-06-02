@@ -6,25 +6,27 @@ SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
 HDIR	= incs
 SFDIR	= ~/.brew/Cellar/sfml/2.2_1/include/
-SDDIR	= ~/.brew/Cellar/sdl2/2.0.3/include/
-TTDIR	= ~/.brew/Cellar/sdl2_ttf/2.0.12/include/
+SDDIR	= ~/.brew/Cellar/sdl2/2.0.3/include/SDL2/
+TTDIR	= ~/.brew/Cellar/sdl2_ttf/2.0.12/include/SDL2/
+ALDIR	= ~/.brew/Cellar/allegro/5.0.11/include/
 SFLIB	= ~/.brew/Cellar/sfml/2.2_1/lib/
 SDLIB	= ~/.brew/Cellar/sdl2/2.0.3/lib/
 TTLIB	= ~/.brew/Cellar/sdl2_ttf/2.0.12/lib
+ALLIB	= ~/.brew/Cellar/allegro/5.0.11/lib/
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS) $(HDIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -L $(SFLIB) -L $(SDLIB) -L $(TTLIB) -lSDL2 -lSDL2_ttf -lsfml-system -lsfml-window -lsfml-graphics
+	$(CC) $(CFLAGS) -o $@ $(OBJS) -L $(SFLIB) -L $(SDLIB) -L $(TTLIB) -L $(ALLIB) -lSDL2 -lSDL2_ttf -lsfml-system -lsfml-window -lsfml-graphics `pkg-config --cflags --libs allegro-5.0 allegro_font-5.0 allegro_main-5.0 allegro_primitives-5.0 allegro_ttf-5.0`
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):
 	/bin/mkdir -p $(ODIR)/$(SDIR);
 
 $(addprefix $(ODIR)/, %.o): %.cpp
-	$(CC) $(CFLAGS) -o $@ -c $< -I $(HDIR) -I $(SFDIR) -I $(SDDIR) -I $(TTDIR)
+	$(CC) $(CFLAGS) -o $@ -c $< -I $(HDIR) -I $(SFDIR) -I $(SDDIR) -I $(TTDIR) -I $(ALDIR)
 	printf '%s\n' "Building object for $<"
 
 check: CFLAGS = $(CHECK)

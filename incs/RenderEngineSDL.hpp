@@ -2,8 +2,8 @@
 # define RENDERENGINESDL_HPP
 
 # include "iRenderEngine.hpp"
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_ttf.h>
+# include <SDL.h>
+# include <SDL_ttf.h>
 
 class RenderEngineSDL : public iRenderEngine
 {
@@ -32,5 +32,11 @@ class RenderEngineSDL : public iRenderEngine
 		SDL_Renderer*		_rend;
 		SDL_Rect*			_tile;
 };
+
+extern "C"
+{
+	iRenderEngine*				loadRenderer(int, int);
+	void						deleteRenderer(iRenderEngine*);
+}
 
 #endif
