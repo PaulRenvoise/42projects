@@ -1,11 +1,8 @@
 #ifndef CORE_HPP
 # define CORE_HPP
 
-# include <iostream>
-# include <vector>
-# include "iRenderEngine.hpp"
 # include "Player.hpp"
-# include "Tile.hpp"
+# include "dlfcn.h"
 
 enum	eGraphics
 {
@@ -17,7 +14,7 @@ enum	eGraphics
 class GameEngine
 {
 	public:
-		GameEngine(int, int, int);
+		GameEngine(int, int, int, iRenderEngine*);
 		~GameEngine(void);
 
 		void							setRenderer(iRenderEngine*);
@@ -36,6 +33,8 @@ class GameEngine
 		void							run(void);
 
 	private:
+		int								_width;
+		int								_height;
 		iRenderEngine*					_renderer;
 		std::vector<Player*>			_players;
 		std::vector<std::vector<Tile*>>	_board;

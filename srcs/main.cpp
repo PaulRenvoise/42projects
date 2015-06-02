@@ -1,7 +1,5 @@
 #include "GameEngine.hpp"
 #include "Parser.hpp"
-#include <iostream>
-#include "dlfcn.h"
 
 enum	eOptions
 {
@@ -36,13 +34,10 @@ int		main(int ac, char** av)
 	int				width = 50;
 	int				height = 40;
 	int				players = 1;
-	iRenderEngine*	engine = NULL;
+	iRenderEngine*	renderer = NULL;
 	void*			handle;
 	iRenderEngine*	(*factory)(int, int);
-	std::string		path("./libs/");
-	(void)engine;
-	(void)factory;
-	(void)handle;
+	std::string		path("./");
 
 	if (parser.nonOptionsCount() || options[UNKNOWN])
 	{
@@ -71,15 +66,19 @@ int		main(int ac, char** av)
 			path.append(".so");
 		}
 		else
-			path.append("SFML.so");
+			path.append("sfml.so");
 		handle = dlopen(path.c_str(), RTLD_LAZY | RTLD_LOCAL);
 		if (!handle)
-			std::cout << "ERROR" << std::endl;
+			std::cout << "ERROR HANDLE" << std::endl;
+		factory = (iRenderEngine *(*)(int, int))dlsym(handle, "loadRenderer");
+		if (!factory)
+			std::cout << "ERROR FACTORY" << std::endl;
+		renderer = factory(width, height);
 	}
 
 	std::srand(std::time(0));
 
-	GameEngine game(width, height, players);
+	GameEngine game(width, height, players, renderer);
 
 	game.run();
 

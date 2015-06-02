@@ -155,7 +155,7 @@ int					RenderEngineSDL::getEvent(void)
 
 	return input;
 }
-/*
+
 iRenderEngine*				loadRenderer(int width, int height)
 {
 	return new RenderEngineSDL(width, height);
@@ -164,4 +164,4 @@ iRenderEngine*				loadRenderer(int width, int height)
 void						deleteRenderer(iRenderEngine* renderer)
 {
 	renderer->exit();
-}*/
+}

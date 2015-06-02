@@ -1,6 +1,7 @@
 #include "GameEngine.hpp"
 
-GameEngine::GameEngine(int width, int height, int players)
+GameEngine::GameEngine(int width, int height, int players, iRenderEngine* renderer) :
+	_width(width), _height(height), _renderer(renderer)
 {
 	std::vector<std::vector<Tile*>>	board(height, std::vector<Tile*>(width, NULL));
 	for (std::vector<std::vector<Tile*>>::iterator it = board.begin(); it != board.end(); it++)
@@ -16,7 +17,6 @@ GameEngine::GameEngine(int width, int height, int players)
 	this->_board = board;
 	this->_spawnTile(eType::FOOD);
 	this->_spawnTile(eType::HOLE);
-	this->setRenderer(new RenderEngineAllegro(width, height));
 	if (players > 1)
 	{
 		this->addPlayer(new Player(0, width / 2 + 1, height / 2));
@@ -101,15 +101,42 @@ void							GameEngine::_handleInput(void)
 		this->_exit();
 	else if (input == eInputs::KEY_1)
 	{
-		std::cout << "INPUT 1" << std::endl;
+		void* handle = handle = dlopen("./sfml.so", RTLD_LAZY | RTLD_LOCAL);
+		if (handle)
+		{
+			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
+			if (factory)
+				this->setRenderer(factory(this->_width, this->_height));
+			else
+				std::cout << "ERROR FACTORY" << std::endl;
+		}
+		std::cout << "ERROR HANDLE" << std::endl;
 	}
 	else if (input == eInputs::KEY_2)
 	{
-		std::cout << "INPUT 2" << std::endl;
+		void* handle = handle = dlopen("./sfml.so", RTLD_LAZY | RTLD_LOCAL);
+		if (handle)
+		{
+			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
+			if (factory)
+				this->setRenderer(factory(this->_width, this->_height));
+			else
+				std::cout << "ERROR FACTORY" << std::endl;
+		}
+		std::cout << "ERROR HANDLE" << std::endl;
 	}
 	else if (input == eInputs::KEY_3)
 	{
-		std::cout << "INPUT 3" << std::endl;
+		void* handle = handle = dlopen("./allegro.so", RTLD_LAZY | RTLD_LOCAL);
+		if (handle)
+		{
+			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
+			if (factory)
+				this->setRenderer(factory(this->_width, this->_height));
+			else
+				std::cout << "ERROR FACTORY" << std::endl;
+		}
+		std::cout << "ERROR HANDLE" << std::endl;
 	}
 	else if (input != eInputs::NONE)
 	{

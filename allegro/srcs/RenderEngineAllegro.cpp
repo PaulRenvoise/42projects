@@ -138,7 +138,7 @@ int					RenderEngineAllegro::getEvent(void)
 
 	return input;
 }
-/*
+
 iRenderEngine*				loadRenderer(int width, int height)
 {
 	return new RenderEngineAllegro(width, height);
@@ -147,4 +147,4 @@ iRenderEngine*				loadRenderer(int width, int height)
 void						deleteRenderer(iRenderEngine* renderer)
 {
 	renderer->exit();
-}*/
+}
