@@ -30,7 +30,7 @@ check: re
 clean:
 	/bin/rm -rf $(ODIR)
 	$(MAKE) $@ -C sfml
-#	$(MAKE) $@ -C sdl
+	$(MAKE) $@ -C sdl
 	$(MAKE) $@ -C allegro
 	printf '\033[32;03m%s\033[00m\n' "$(NAME) directory is cleaned."
 
