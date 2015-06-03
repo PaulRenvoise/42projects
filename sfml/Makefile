@@ -11,14 +11,14 @@ OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared -fPIC $(LIBS) -lsfml-system -lsfml-window -lsfml-graphics
+	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS) -lsfml-system -lsfml-window -lsfml-graphics
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):
 	/bin/mkdir -p $(ODIR)/$(SDIR);
 
 $(addprefix $(ODIR)/, %.o): %.cpp
-	$(CC) $(CFLAGS) -o $@ -c $< $(INCS)
+	$(CC) $(CFLAGS) -o $@ -c $< $(INCS) -fPIC -g
 	printf '%s\n' "Building object for $<"
 
 clean:
@@ -32,5 +32,5 @@ fclean:
 
 re: fclean all
 
-.PHONY: all analyze lib clean fclean re
+.PHONY: all clean fclean re
 .SILENT:

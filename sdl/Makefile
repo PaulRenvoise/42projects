@@ -11,14 +11,14 @@ OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS) -lSDL2 -lSDL2_ttf
+	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS) -lSDL2 -lSDL2_ttf
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):
 	/bin/mkdir -p $(ODIR)/$(SDIR);
 
 $(addprefix $(ODIR)/, %.o): %.cpp
-	$(CC) $(CFLAGS) -o $@ -c $< $(INCS) -D_THREAD_SAFE
+	$(CC) $(CFLAGS) -o $@ -c $< $(INCS) -fPIC -g
 	printf '%s\n' "Building object for $<"
 
 clean:

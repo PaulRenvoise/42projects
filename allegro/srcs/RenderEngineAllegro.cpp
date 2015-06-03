@@ -16,6 +16,7 @@ RenderEngineAllegro::RenderEngineAllegro(int width, int height)
 	this->_events = al_create_event_queue();
 	al_register_event_source(this->_events, al_get_display_event_source(this->_win));
 	al_register_event_source(this->_events, al_get_keyboard_event_source());
+	std::cout << "1" << std::endl;
 }
 
 RenderEngineAllegro::~RenderEngineAllegro(void)
@@ -44,6 +45,7 @@ int					RenderEngineAllegro::getHeight(void) const
 
 void				RenderEngineAllegro::drawBackground(int colors[3])
 {
+	std::cout << "2" << std::endl;
 	al_draw_filled_rectangle(0, 0, this->_w, this->_h, al_map_rgb(colors[0], colors[1], colors[2]));
 }
 

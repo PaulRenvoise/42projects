@@ -22,15 +22,15 @@ const option::Descriptor	usage[] =
 	{0, 0, 0, 0, 0, 0}
 };
 
-int		main(int ac, char** av)
+int		main(int argc, char **argv)
 {
-	ac -= (ac > 0);
-	av += (ac > 0);
+	argc -= (argc > 0);
+	argv += (argc > 0);
 
-	option::Stats	stats(usage, ac, av);
+	option::Stats	stats(usage, argc, argv);
 	option::Option*	options = new option::Option[stats.options_max];
 	option::Option*	buffer = new option::Option[stats.buffer_max];
-	option::Parser	parser(usage, ac, av, options, buffer);
+	option::Parser	parser(usage, argc, argv, options, buffer);
 	int				width = 50;
 	int				height = 40;
 	int				players = 1;
@@ -64,10 +64,10 @@ int		main(int ac, char** av)
 		else
 			handle = dlopen("sfml.so", RTLD_LAZY | RTLD_LOCAL);
 		if (!handle)
-			std::cout << "ERROR HANDLE" << std::endl;
+			std::cout << "nibbler: error: " << dlerror() << std::endl;
 		factory = (iRenderEngine *(*)(int, int))dlsym(handle, "loadRenderer");
 		if (!factory)
-			std::cout << "ERROR FACTORY" << std::endl;
+			std::cout << "nibbler: error: " << dlerror() << std::endl;
 		renderer = factory(width, height);
 	}
 
