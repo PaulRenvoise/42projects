@@ -37,7 +37,6 @@ int		main(int ac, char** av)
 	iRenderEngine*	renderer = NULL;
 	void*			handle;
 	iRenderEngine*	(*factory)(int, int);
-	std::string		path("./");
 
 	if (parser.nonOptionsCount() || options[UNKNOWN])
 	{
@@ -61,13 +60,9 @@ int		main(int ac, char** av)
 		if (options[PLAYERS])
 			players = std::atoi(options[PLAYERS].arg);
 		if (options[LIBRARY])
-		{
-			path.append(options[LIBRARY].arg);
-			path.append(".so");
-		}
+			handle = dlopen(options[LIBRARY].arg, RTLD_LAZY | RTLD_LOCAL);
 		else
-			path.append("sfml.so");
-		handle = dlopen(path.c_str(), RTLD_LAZY | RTLD_LOCAL);
+			handle = dlopen("sfml.so", RTLD_LAZY | RTLD_LOCAL);
 		if (!handle)
 			std::cout << "ERROR HANDLE" << std::endl;
 		factory = (iRenderEngine *(*)(int, int))dlsym(handle, "loadRenderer");

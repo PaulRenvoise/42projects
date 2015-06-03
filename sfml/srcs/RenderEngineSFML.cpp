@@ -4,7 +4,7 @@ RenderEngineSFML::RenderEngineSFML(int width, int height)
 {
 	this->_w = width * 24;
 	this->_h = height * 24 + 100;
-	this->_win = new sf::RenderWindow(sf::VideoMode(this->_w, this->_h), "NIBBLER");
+	this->_win = new sf::RenderWindow(sf::VideoMode(this->_w, this->_h), "NIBBLER - SFML");
 	this->_font = new sf::Font();
 	this->_font->loadFromFile("./font/Square.ttf");
 	this->_tile = new sf::RectangleShape(sf::Vector2f(24, 24));
@@ -149,4 +149,5 @@ iRenderEngine*				loadRenderer(int width, int height)
 void						deleteRenderer(iRenderEngine* renderer)
 {
 	renderer->exit();
+	delete renderer;
 }

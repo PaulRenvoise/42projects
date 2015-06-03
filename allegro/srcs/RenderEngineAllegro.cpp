@@ -12,7 +12,7 @@ RenderEngineAllegro::RenderEngineAllegro(int width, int height)
 	this->_h = height * 24 + 100;
 	al_set_new_display_flags(ALLEGRO_WINDOWED);
 	this->_win = al_create_display(this->_w, this->_h);
-	al_set_window_title(this->_win, "NIBBLER");
+	al_set_window_title(this->_win, "NIBBLER - ALLEGRO");
 	this->_events = al_create_event_queue();
 	al_register_event_source(this->_events, al_get_display_event_source(this->_win));
 	al_register_event_source(this->_events, al_get_keyboard_event_source());
@@ -147,4 +147,5 @@ iRenderEngine*				loadRenderer(int width, int height)
 void						deleteRenderer(iRenderEngine* renderer)
 {
 	renderer->exit();
+	delete renderer;
 }

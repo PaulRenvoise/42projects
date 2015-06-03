@@ -12,7 +12,7 @@ all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
 	$(MAKE) -C sfml
-#	$(MAKE) -C sdl
+	$(MAKE) -C sdl
 	$(MAKE) -C allegro
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
@@ -38,7 +38,7 @@ fclean:
 	/bin/rm -rf $(ODIR)
 	/bin/rm -rf $(NAME)
 	$(MAKE) $@ -C sfml
-#	$(MAKE) $@ -C sdl
+	$(MAKE) $@ -C sdl
 	$(MAKE) $@ -C allegro
 	printf '\033[32;03m%s\033[00m\n' "$(NAME) directory is fcleaned."
 

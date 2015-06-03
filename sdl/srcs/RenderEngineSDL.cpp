@@ -6,7 +6,7 @@ RenderEngineSDL::RenderEngineSDL(int width, int height)
 	TTF_Init();
 	this->_w = width * 24;
 	this->_h = height * 24 + 100;
-	this->_win = SDL_CreateWindow("NIBBLER", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, this->_w, this->_h, SDL_WINDOW_SHOWN);
+	this->_win = SDL_CreateWindow("NIBBLER - SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, this->_w, this->_h, SDL_WINDOW_SHOWN);
 	this->_rend = SDL_CreateRenderer(this->_win, 0, SDL_RENDERER_ACCELERATED);
 	this->_tile = new SDL_Rect;
 	this->_tile->h = 24;
@@ -164,4 +164,5 @@ iRenderEngine*				loadRenderer(int width, int height)
 void						deleteRenderer(iRenderEngine* renderer)
 {
 	renderer->exit();
+	delete renderer;
 }

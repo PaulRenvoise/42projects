@@ -18,7 +18,7 @@ $(ODIR):
 	/bin/mkdir -p $(ODIR)/$(SDIR);
 
 $(addprefix $(ODIR)/, %.o): %.cpp
-	$(CC) $(CFLAGS) -o $@ -c $< $(INCS)
+	$(CC) $(CFLAGS) -o $@ -c $< $(INCS) -D_THREAD_SAFE
 	printf '%s\n' "Building object for $<"
 
 clean:

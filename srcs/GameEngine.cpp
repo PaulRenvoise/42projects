@@ -29,8 +29,6 @@ GameEngine::GameEngine(int width, int height, int players, iRenderEngine* render
 
 GameEngine::~GameEngine(void)
 {
-	delete this->_renderer;
-
 	for (unsigned long i = 0; i < this->_players.size(); i++)
 		delete this->_players[i];
 }
@@ -106,24 +104,32 @@ void							GameEngine::_handleInput(void)
 		{
 			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
 			if (factory)
+			{
+				this->_renderer->exit();
 				this->setRenderer(factory(this->_width, this->_height));
+			}
 			else
-				std::cout << "ERROR FACTORY" << std::endl;
+				std::cout << "ERROR FACTORY SFML" << std::endl;
 		}
-		std::cout << "ERROR HANDLE" << std::endl;
+		else
+			std::cout << "ERROR HANDLE SFML" << std::endl;
 	}
 	else if (input == eInputs::KEY_2)
 	{
-		void* handle = handle = dlopen("./sfml.so", RTLD_LAZY | RTLD_LOCAL);
+		void* handle = handle = dlopen("./sdl.so", RTLD_LAZY | RTLD_LOCAL);
 		if (handle)
 		{
 			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
 			if (factory)
+			{
+				this->_renderer->exit();
 				this->setRenderer(factory(this->_width, this->_height));
+			}
 			else
-				std::cout << "ERROR FACTORY" << std::endl;
+				std::cout << "ERROR FACTORY SDL" << std::endl;
 		}
-		std::cout << "ERROR HANDLE" << std::endl;
+		else
+			std::cout << "ERROR HANDLE SDL" << std::endl;
 	}
 	else if (input == eInputs::KEY_3)
 	{
@@ -132,11 +138,15 @@ void							GameEngine::_handleInput(void)
 		{
 			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
 			if (factory)
+			{
+				this->_renderer->exit();
 				this->setRenderer(factory(this->_width, this->_height));
+			}
 			else
-				std::cout << "ERROR FACTORY" << std::endl;
+				std::cout << "ERROR FACTORY ALLEGRO" << std::endl;
 		}
-		std::cout << "ERROR HANDLE" << std::endl;
+		else
+			std::cout << "ERROR HANDLE ALLEGRO" << std::endl;
 	}
 	else if (input != eInputs::NONE)
 	{

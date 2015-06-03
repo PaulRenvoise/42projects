@@ -936,7 +936,7 @@ struct Arg
   //! @brief Returns ARG_OK if the argument is valid library and ARG_ILLEGAL otherwise.
   static option::ArgStatus Library(const option::Option& option, bool msg)
   {
-    if (option.arg != NULL && (!strcmp(option.arg, "allegro") || !strcmp(option.arg, "sfml") || !strcmp(option.arg, "sdl")))
+    if (option.arg != NULL && (!strcmp(option.arg, "allegro.so") || !strcmp(option.arg, "sfml.so") || !strcmp(option.arg, "sdl.so")))
       return option::ARG_OK;
 
     if (msg)
