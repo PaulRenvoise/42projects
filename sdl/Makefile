@@ -4,14 +4,14 @@ NAME	= ../sdl.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
 INCS	= -I incs -I ../incs -I ~/.brew/Cellar/sdl2/2.0.3/include/SDL2/ -I ~/.brew/Cellar/sdl2_ttf/2.0.12/include/SDL2/
-LIBS	= -L ~/.brew/Cellar/sdl2/2.0.3/lib/ -L ~/.brew/Cellar/sdl2_ttf/2.0.12/lib
+LIBS	= -L ~/.brew/Cellar/sdl2/2.0.3/lib/ -L ~/.brew/Cellar/sdl2_ttf/2.0.12/lib -lSDL2 -lSDL2_ttf
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS) -lSDL2 -lSDL2_ttf
+	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS)
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):

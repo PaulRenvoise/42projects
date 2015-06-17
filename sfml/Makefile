@@ -3,15 +3,15 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++11 -stdlib=libc++
 NAME	= ../sfml.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
-INCS	= -I incs -I ../incs -I ~/.brew/Cellar/sfml/2.2_1/include/
-LIBS	= -L ~/.brew/Cellar/sfml/2.2_1/lib/
+INCS	= -I incs -I ../incs -I ~/.brew/Cellar/sfml/2.3/include/
+LIBS	= -L ~/.brew/Cellar/sfml/2.3/lib/ -lsfml-system -lsfml-window -lsfml-graphics
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS) -lsfml-system -lsfml-window -lsfml-graphics
+	$(CC) $(CFLAGS) -o $@ $(OBJS) -shared $(LIBS)
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):

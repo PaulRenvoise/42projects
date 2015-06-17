@@ -53,8 +53,8 @@ void				RenderEngineSDL::drawBackground(int colors[3])
 
 void				RenderEngineSDL::drawTile(int colors[3], int x, int y)
 {
-	this->_tile->x = y;
-	this->_tile->y = x;
+	this->_tile->x = y * 24;
+	this->_tile->y = x * 24;
 	SDL_SetRenderDrawColor(this->_rend, colors[0], colors[1], colors[2], 0xFF);
 	SDL_RenderFillRect(this->_rend, this->_tile);
 }

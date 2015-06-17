@@ -18,7 +18,7 @@ const option::Descriptor	usage[] =
 	{WIDTH, 0, "w", "width", option::Arg::NumericAbove4, " -w, --width \t Specify the game area's width, must be > 4 (default 50)." },
 	{HEIGHT, 0, "h", "height", option::Arg::NumericAbove4, " -h, --height \t Specify the game area's height, must be > 4 (default 40)." },
 	{PLAYERS, 0, "p", "players", option::Arg::Numeric1Or2, " -p, --players \t Specify the number of players for the game, must be 1 or 2 (default 1)." },
-	{LIBRARY, 0, "l", "library", option::Arg::Library, " -l, --library \t Specify the graphic library for the game, must be allegro, sdl or sfml (default sfml)." },
+	{LIBRARY, 0, "l", "library", option::Arg::Library, " -l, --library \t Specify the graphic library for the game, must be sfml, sdl, allegro or ncurses (default sfml)." },
 	{0, 0, 0, 0, 0, 0}
 };
 

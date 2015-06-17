@@ -50,7 +50,7 @@ void				RenderEngineSFML::drawBackground(int colors[3])
 void				RenderEngineSFML::drawTile(int colors[3], int x, int y)
 {
 	this->_tile->setFillColor(sf::Color(colors[0], colors[1], colors[2]));
-	this->_tile->setPosition(y, x);
+	this->_tile->setPosition(y * 24, x * 24);
 	this->_win->draw(*this->_tile);
 }
 

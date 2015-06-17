@@ -153,7 +153,7 @@ void								Player::draw(iRenderEngine* renderer)
 	for (int y = renderer->getHeight() - 100; y < renderer->getHeight(); y++)
 	{
 		int color[3] = {45, 45, 45};
-		renderer->drawTile(color, y, width / 2);
+		renderer->drawTile(color, y / 24, width / 2 / 24);
 	}
 
 	/**
@@ -162,8 +162,8 @@ void								Player::draw(iRenderEngine* renderer)
 	for (std::vector<std::pair<int, int>>::iterator it = this->_snake.begin(); it != this->_snake.end(); it++)
 	{
 		if (it != this->_snake.begin())
-			renderer->drawTile(colors[this->_id][0], (*it).second * 24, (*it).first * 24);
+			renderer->drawTile(colors[this->_id][0], (*it).second, (*it).first);
 		else
-			renderer->drawTile(colors[this->_id][1], (*it).second * 24, (*it).first * 24);
+			renderer->drawTile(colors[this->_id][1], (*it).second, (*it).first);
 	}
 }

@@ -4,14 +4,14 @@ NAME	= ../allegro.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
 INCS	= -I incs -I ../incs -I ~/.brew/Cellar/allegro/5.0.11/include/
-LIBS	= -L ~/.brew/Cellar/allegro/5.0.11/lib/
+LIBS	= -L ~/.brew/Cellar/allegro/5.0.11/lib/ -lallegro -lallegro_primitives -lallegro_ttf -lallegro_font
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(ODIR) $(OBJS)
-	$(CC) -o $@ $(OBJS) -shared $(LIBS) -lallegro -lallegro_primitives -lallegro_ttf -lallegro_font
+	$(CC) -o $@ $(OBJS) -shared $(LIBS)
 	printf '\033[32;03m%s\033[00m\n' "$@ created!"
 
 $(ODIR):

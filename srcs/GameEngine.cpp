@@ -133,7 +133,7 @@ void							GameEngine::_handleInput(void)
 	}
 	else if (input == eInputs::KEY_3)
 	{
-		void* handle = handle = dlopen("./allegro.so", RTLD_LAZY | RTLD_LOCAL);
+		void* handle = handle = dlopen("./opengl.so", RTLD_LAZY | RTLD_LOCAL);
 		if (handle)
 		{
 			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
@@ -367,9 +367,9 @@ void							GameEngine::_drawBoard(void)
 					this->_renderer->drawTile(colors[4], x, y);
 					break;
 			}
-			y += 24;
+			y++;
 		}
-		x += 24;
+		x++;
 	}
 }
 

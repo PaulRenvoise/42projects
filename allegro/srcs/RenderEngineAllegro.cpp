@@ -49,7 +49,7 @@ void				RenderEngineAllegro::drawBackground(int colors[3])
 
 void				RenderEngineAllegro::drawTile(int colors[3], int x, int y)
 {
-	al_draw_filled_rectangle(y, x, y + 24, x + 24, al_map_rgb(colors[0], colors[1], colors[2]));
+	al_draw_filled_rectangle(y * 24, x * 24, y * 24 + 24, x * 24 + 24, al_map_rgb(colors[0], colors[1], colors[2]));
 }
 
 void				RenderEngineAllegro::drawText(std::string content, int size, int colors[3], int x, int y)
