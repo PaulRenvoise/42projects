@@ -5,6 +5,7 @@
 # include <GLFW/glfw3.h>
 # include <OpenGL/gl.h>
 # include <OpenGL/glu.h>
+# include <FTGL/ftgl.h>
 
 class RenderEngineOpenGL : public iRenderEngine
 {
@@ -30,6 +31,7 @@ class RenderEngineOpenGL : public iRenderEngine
 		int					_w;
 		int					_h;
 		GLFWwindow*			_win;
+		FTFont*				_font;
 };
 
 extern "C"

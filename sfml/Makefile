@@ -3,8 +3,8 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++11 -stdlib=libc++
 NAME	= ../sfml.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
-INCS	= -I incs -I ../incs -I ~/.brew/Cellar/sfml/2.3/include/
-LIBS	= -L ~/.brew/Cellar/sfml/2.3/lib/ -lsfml-system -lsfml-window -lsfml-graphics
+INCS	= -I incs -I ../incs -I ~/.brew/include
+LIBS	= -L ~/.brew/lib -lsfml-system -lsfml-window -lsfml-graphics
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 

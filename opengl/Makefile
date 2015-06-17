@@ -3,8 +3,8 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++11 -stdlib=libc++
 NAME	= ../opengl.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
-INCS	= -I incs -I ../incs -I ~/.brew/include
-LIBS	= -L ~/.brew/lib -lglfw3 -framework OpenGL -framework GLUT
+INCS	= -I incs -I ../incs -I ~/.brew/include -I ~/.brew/include/freetype2
+LIBS	= -L ~/.brew/lib -lglfw3 -framework OpenGL -lFTGL
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 

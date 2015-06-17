@@ -3,8 +3,8 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++11 -stdlib=libc++
 NAME	= ../sdl.so
 SDIR	= srcs
 ODIR	= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/.objs
-INCS	= -I incs -I ../incs -I ~/.brew/Cellar/sdl2/2.0.3/include/SDL2/ -I ~/.brew/Cellar/sdl2_ttf/2.0.12/include/SDL2/
-LIBS	= -L ~/.brew/Cellar/sdl2/2.0.3/lib/ -L ~/.brew/Cellar/sdl2_ttf/2.0.12/lib -lSDL2 -lSDL2_ttf
+INCS	= -I incs -I ../incs -I ~/.brew/include
+LIBS	= -L ~/.brew/lib -lSDL2 -lSDL2_ttf
 SRCS	= $(wildcard $(SDIR)/*.cpp)
 OBJS	= $(addprefix $(ODIR)/, $(SRCS:.cpp=.o))
 

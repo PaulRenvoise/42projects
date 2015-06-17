@@ -2,6 +2,8 @@
 
 RenderEngineOpenGL::RenderEngineOpenGL(int width, int height)
 {
+	this->_font = new FTGLPixmapFont("./font/Square.ttf");
+
 	glfwInit();
 	this->_w = width * 24;
 	this->_h = height * 24 + 100;
@@ -55,11 +57,9 @@ void				RenderEngineOpenGL::drawTile(int colors[3], int x, int y)
 
 void				RenderEngineOpenGL::drawText(std::string content, int size, int colors[3], int x, int y)
 {
-	(void)content;
-	(void)size;
-	(void)colors;
-	(void)x;
-	(void)y;
+	this->_font->FaceSize(size);
+	glColor3f((float)(colors[0] / 255.0f), (float)(colors[1] / 255.0f), (float)(colors[2] / 255.0f));
+	this->_font->Render(content.c_str(), content.length(), FTPoint(x, this->_h - y - 35));
 }
 
 void				RenderEngineOpenGL::clear(void)
