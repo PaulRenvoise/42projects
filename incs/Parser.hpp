@@ -900,24 +900,41 @@ struct Arg
   }
 
   //! @brief Returns ARG_OK if the argument is a numeric > 4 and ARG_ILLEGAL otherwise.
-  static option::ArgStatus NumericAbove4(const option::Option& option, bool msg)
+  static option::ArgStatus Width(const option::Option& option, bool msg)
   {
     char* endptr = 0;
     long int lint = 0;
 
     if (option.arg != 0)
       lint = strtol(option.arg, &endptr, 10);
-    if (endptr != option.arg && *endptr == 0 && lint > 4)
+    if (endptr != option.arg && *endptr == 0 && lint > 20 && lint < 104)
       return option::ARG_OK;
 
     if (msg)
-      std::cerr << "Option '" << option.name << "' requires a numeric argument greater than 4.\n";
+      std::cerr << "Option '" << option.name << "' requires a numeric argument between 20 and 104.\n";
+
+    return option::ARG_ILLEGAL;
+  }
+
+  //! @brief Returns ARG_OK if the argument is a numeric > 4 and ARG_ILLEGAL otherwise.
+  static option::ArgStatus Height(const option::Option& option, bool msg)
+  {
+    char* endptr = 0;
+    long int lint = 0;
+
+    if (option.arg != 0)
+      lint = strtol(option.arg, &endptr, 10);
+    if (endptr != option.arg && *endptr == 0 && lint > 12 && lint < 55)
+      return option::ARG_OK;
+
+    if (msg)
+      std::cerr << "Option '" << option.name << "' requires a numeric argument between 12 and 55.\n";
 
     return option::ARG_ILLEGAL;
   }
 
   //! @brief Returns ARG_OK if the argument is a numeric == 1 || 2 and ARG_ILLEGAL otherwise.
-  static option::ArgStatus Numeric1Or2(const option::Option& option, bool msg)
+  static option::ArgStatus Players(const option::Option& option, bool msg)
   {
     char* endptr = 0;
     long int lint = 0;
