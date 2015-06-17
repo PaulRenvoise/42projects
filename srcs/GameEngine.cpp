@@ -98,56 +98,11 @@ void							GameEngine::_handleInput(void)
 	if (input == eInputs::ESCAPE)
 		this->_exit();
 	else if (input == eInputs::KEY_1)
-	{
-		void* handle = handle = dlopen("./sfml.so", RTLD_LAZY | RTLD_LOCAL);
-		if (handle)
-		{
-			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
-			if (factory)
-			{
-				this->_renderer->exit();
-				this->setRenderer(factory(this->_width, this->_height));
-			}
-			else
-				std::cout << "ERROR FACTORY SFML" << std::endl;
-		}
-		else
-			std::cout << "ERROR HANDLE SFML" << std::endl;
-	}
+		this->_changeRenderer("./sfml.so");
 	else if (input == eInputs::KEY_2)
-	{
-		void* handle = handle = dlopen("./sdl.so", RTLD_LAZY | RTLD_LOCAL);
-		if (handle)
-		{
-			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
-			if (factory)
-			{
-				this->_renderer->exit();
-				this->setRenderer(factory(this->_width, this->_height));
-			}
-			else
-				std::cout << "ERROR FACTORY SDL" << std::endl;
-		}
-		else
-			std::cout << "ERROR HANDLE SDL" << std::endl;
-	}
+		this->_changeRenderer("./sdl.so");
 	else if (input == eInputs::KEY_3)
-	{
-		void* handle = handle = dlopen("./opengl.so", RTLD_LAZY | RTLD_LOCAL);
-		if (handle)
-		{
-			iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
-			if (factory)
-			{
-				this->_renderer->exit();
-				this->setRenderer(factory(this->_width, this->_height));
-			}
-			else
-				std::cout << "ERROR FACTORY ALLEGRO" << std::endl;
-		}
-		else
-			std::cout << "ERROR HANDLE ALLEGRO" << std::endl;
-	}
+		this->_changeRenderer("./opengl.so");
 	else if (input != eInputs::NONE)
 	{
 		if (this->_players[0])
@@ -370,6 +325,30 @@ void							GameEngine::_drawBoard(void)
 			y++;
 		}
 		x++;
+	}
+}
+
+void							GameEngine::_changeRenderer(std::string name)
+{
+	void* handle = handle = dlopen(name.c_str(), RTLD_LAZY | RTLD_LOCAL);
+	if (handle)
+	{
+		iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
+		if (factory)
+		{
+			this->_renderer->exit();
+			this->setRenderer(factory(this->_width, this->_height));
+		}
+		else
+		{
+			std::cout << "nibbler: error: " << dlerror() << std::endl;
+			this->_exit();
+		}
+	}
+	else
+	{
+		std::cout << "nibbler: error: " << dlerror() << std::endl;
+		this->_exit();
 	}
 }
 

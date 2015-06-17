@@ -49,6 +49,7 @@ class GameEngine
 
 		void							_drawBoard(void);
 		void							_lastScreen(std::string);
+		void							_changeRenderer(std::string);
 };
 
 #endif
