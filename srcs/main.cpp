@@ -15,10 +15,10 @@ const option::Descriptor	usage[] =
 {
 	{UNKNOWN, 0, "", "", option::Arg::None, "Usage:\n nibbler [--help] [-w WIDTH] [-h HEIGHT]" },
 	{HELP, 0, "", "help", option::Arg::None, "\nOptions:\n --help \t Display this help." },
-	{WIDTH, 0, "w", "width", option::Arg::Width, " -w, --width \t Specify the game area's width, must be between 20 and 104 (default 50)." },
-	{HEIGHT, 0, "h", "height", option::Arg::Height, " -h, --height \t Specify the game area's height, must be between 12 and 55 (default 40)." },
+	{WIDTH, 0, "w", "width", option::Arg::Width, " -w, --width \t Specify the game area's width, must be between 21 and 103 (default 50)." },
+	{HEIGHT, 0, "h", "height", option::Arg::Height, " -h, --height \t Specify the game area's height, must be between 13 and 54 (default 40)." },
 	{PLAYERS, 0, "p", "players", option::Arg::Players, " -p, --players \t Specify the number of players for the game, must be 1 or 2 (default 1)." },
-	{LIBRARY, 0, "l", "library", option::Arg::Library, " -l, --library \t Specify the graphic library for the game, must be sfml, sdl, allegro or ncurses (default sfml)." },
+	{LIBRARY, 0, "l", "library", option::Arg::Library, " -l, --library \t Specify the graphic library for the game, must be sfml.so, sdl.so or opengl.so (default sfml)." },
 	{0, 0, 0, 0, 0, 0}
 };
 

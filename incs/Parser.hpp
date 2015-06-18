@@ -911,7 +911,7 @@ struct Arg
       return option::ARG_OK;
 
     if (msg)
-      std::cerr << "Option '" << option.name << "' requires a numeric argument between 20 and 104.\n";
+      std::cerr << "Option '" << option.name << "' requires a numeric argument between 21 and 103.\n";
 
     return option::ARG_ILLEGAL;
   }
@@ -928,7 +928,7 @@ struct Arg
       return option::ARG_OK;
 
     if (msg)
-      std::cerr << "Option '" << option.name << "' requires a numeric argument between 12 and 55.\n";
+      std::cerr << "Option '" << option.name << "' requires a numeric argument between 13 and 54.\n";
 
     return option::ARG_ILLEGAL;
   }
@@ -953,7 +953,7 @@ struct Arg
   //! @brief Returns ARG_OK if the argument is valid library and ARG_ILLEGAL otherwise.
   static option::ArgStatus Library(const option::Option& option, bool msg)
   {
-    if (option.arg != NULL && (!strcmp(option.arg, "allegro.so") || !strcmp(option.arg, "sfml.so") || !strcmp(option.arg, "sdl.so") || !strcmp(option.arg, "opengl.so")))
+    if (option.arg != NULL && (!strcmp(option.arg, "sfml.so") || !strcmp(option.arg, "sdl.so") || !strcmp(option.arg, "opengl.so")))
       return option::ARG_OK;
 
     if (msg)

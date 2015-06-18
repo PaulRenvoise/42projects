@@ -330,7 +330,7 @@ void							GameEngine::_drawBoard(void)
 
 void							GameEngine::_changeRenderer(std::string name)
 {
-	void* handle = handle = dlopen(name.c_str(), RTLD_LAZY | RTLD_LOCAL);
+	void*	handle = dlopen(name.c_str(), RTLD_LAZY | RTLD_LOCAL);
 	if (handle)
 	{
 		iRenderEngine*	(*factory)(int, int) = (iRenderEngine* (*)(int, int))dlsym(handle, "loadRenderer");
