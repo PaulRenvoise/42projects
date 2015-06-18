@@ -6,7 +6,7 @@
 /*   By: prenvois <prenvois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 12:03:49 by prenvois          #+#    #+#             */
-/*   Updated: 2014/03/17 15:15:02 by prenvois         ###   ########.fr       */
+/*   Updated: 2015/06/18 12:45:42 by prenvois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ char			**ft_strsplit(char const *s, char c)
 	if (!(tab = (char**)malloc(sizeof(char*) * (size_t)(nb + 1))))
 		return (NULL);
 	ft_fill(nb, c, tab, (char*)s);
-	tab[nb] = '\0';
+	tab[nb] = NULL;
 	return (tab);
 }
